@@ -1,29 +1,14 @@
-# shadow
+# ShadowCode
 
-## Project setup
-```
-npm install
-```
+> Website front-end is Vue.js project
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+> UI is iView which component library based on Vue.js 
 
-### Compiles and minifies for production
-```
-npm run build
-```
+> Server using Tornado framework.
 
-### Run your tests
-```
-npm run test
-```
+Expect:  
+This will be a framework for storing some of online gadgets.
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+TODO:  
+1. TODO
+2. TODO
