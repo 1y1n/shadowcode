@@ -1,31 +1,51 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="app">
+        <Menu mode="horizontal" :theme="theme1" active-name="1">
+            <MenuItem name="1" to="/">
+                <Icon type="ios-paper" />
+                首页
+            </MenuItem>
+            <MenuItem name="2" to="/tools">
+                <Icon type="ios-people" />
+                工具
+            </MenuItem>
+            <MenuItem name="3" to="/about">
+                <Icon type="ios-construct" />
+                关于
+            </MenuItem>
+            <MenuItem id="theme">
+                <RadioGroup v-model="theme1">
+                    <Radio label="light"></Radio>
+                    <Radio label="dark"></Radio>
+                    <Radio label="primary"></Radio>
+                </RadioGroup>
+            </MenuItem>
+        </Menu>
+        <br>
+
+      <router-view/>
     </div>
-    <router-view/>
-  </div>
 </template>
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
 }
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+#theme {
+    float: right;
 }
 </style>
+
+<script>
+export default {
+    data() {
+        return {
+            theme1: 'light'
+        }
+    }
+}
+</script>
