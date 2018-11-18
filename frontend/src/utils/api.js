@@ -48,7 +48,20 @@ async function testPostData() {
     }
 }
 
-
+async function baseSubmit(crypt, type, data){
+    try {
+        const res = await axios.get('http://127.0.0.1:8888/base_crypto',{
+            params:{
+                crypt: crypt,
+                type: type,
+                data: data
+            }
+        })
+        return res.data   // res.data
+    } catch (error) {
+        return 'error'
+    }
+}
 
 function testGetData() {
     // 下面这种方式不适合封装。
@@ -103,4 +116,11 @@ const api = {
 
 
 
-export { asyncTest, testGetData, testPostData, api}
+export {
+    asyncTest,
+    testGetData,
+    testPostData,
+    api,
+
+    baseSubmit,
+}

@@ -27,6 +27,12 @@ export default new Router({
             name: 'tools',
             component: () =>
                 import(/* webpackChunkName: "tools" */ './views/tools.vue')
+        },
+        {
+            path: '/tool/base',
+            name: 'baseEnc',
+            component: () =>
+                import(/* webpackChunkName: "tools" */ './views/tool/base.vue')
         }
     ]
 })

@@ -6,7 +6,7 @@
             <Card class="card">
                 <div style="text-align:center">
                     <img src="../assets/logo.png">
-                    <h3><a :href="retUrl()">A high quality UI Toolkit based on Vue.js</a></h3>
+                    <h3><a :href="retUrl('baseCryot')">Base Coding (base64/32/16)</a></h3>
                 </div>
             </Card>
         </i-col>
@@ -14,7 +14,7 @@
             <Card class="card">
                 <div style="text-align:center">
                     <img src="../assets/logo.png">
-                    <h3><a :href="retUrl('t1')">A high quality UI Toolkit based on Vue.js</a></h3>
+                    <h3><a :href="retUrl('about')">A high quality UI Toolkit based on Vue.js</a></h3>
                 </div>
             </Card>
         </i-col>
@@ -22,13 +22,14 @@
             <Card class="card">
                 <div style="text-align:center">
                     <img src="../assets/logo.png">
-                    <h3><a :href="retUrl('t1')">A high quality UI Toolkit based on Vue.js</a></h3>
+                    <h3><a :href="retUrl('about')">A high quality UI Toolkit based on Vue.js</a></h3>
                 </div>
             </Card>
         </i-col>
     </Row>
 </div>
 </template>
+
 <script>
 export default {
     data() {
@@ -38,11 +39,13 @@ export default {
     },
     methods: {
         retUrl(msg) {
-            if (msg == 't1') {
+            if (msg == 'about') {
                 return '/about'
-            } else {
-                return ''
+            } 
+            if (msg == 'baseCryot') {
+                return '/tool/base'
             }
+            return ''
         }
     }
 }
