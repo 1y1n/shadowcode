@@ -1,14 +1,22 @@
-import tornado.ioloop
 import tornado.web
-from base import app
+from views import route
+from handler.Base import *
+import json
 
-
-@app.route(r'/test')
-class BaseHandle(tornado.web.RequestHandler):
+@route(r'/test')
+class BaseTestHandler(BaseHandler):
     def get(self):
-        self.write("This is a base handler.")
+        # ret = tornado.escape.json_encode({'code': 0, 'data': 'This is a base handler.'})
+        self.finish({'code': 0, 'data': 'This is a base handler.'})
+    
+    def post(self):
+        rec_data = self.get_argument('data', '')
+        # print(rec_data)
+        if rec_data:
+            self.finish({'code': 0, 'data': 'I have received the message.'})
 
-@app.route(r'/test_test', kwargs=dict(rec_name='test_name'), name="121")  # kwargs 是URLSpec的用法，向class传入参数。class需要用initialize初始化
+
+@route(r'/test_test', kwargs=dict(rec_name='test_name'), name="121")  # kwargs 是URLSpec的用法，向class传入参数。class需要用initialize初始化
 class TestHandler(tornado.web.RequestHandler):
     def initialize(self, rec_name):
         self.name = rec_name
@@ -16,7 +24,7 @@ class TestHandler(tornado.web.RequestHandler):
     def get(self):
         self.write(f"This is a test handler. My name is {self.name}.")
 
-@app.route(r'/test_login')
+@route(r'/test_login')
 class TestLogin(tornado.web.RequestHandler):
     def get(self):
         # 应该是在用户登录提交表单部分设置cookie，也就是post。放在get只是测试
@@ -26,3 +34,9 @@ class TestLogin(tornado.web.RequestHandler):
     @tornado.web.authenticated  # 检验是否登录的装饰器 相当于 if not self.current_user: self.redirect()
     def post(self):
         self.write("")
+
+
+# 异步测试
+# @route(r'async_test')
+# class AsyncTest(tornado.web.RequestHandler):
+#     pass

@@ -13,7 +13,7 @@
                 <Icon type="ios-construct" />
                 关于
             </MenuItem>
-            <MenuItem id="theme">
+            <MenuItem name="theme" id="theme">
                 <RadioGroup v-model="theme1">
                     <Radio label="light"></Radio>
                     <Radio label="dark"></Radio>
