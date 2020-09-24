@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import iView from 'iview'
-import 'iview/dist/styles/iview.css'
+import ViewUI  from 'view-design'
+import 'view-design/dist/styles/iview.css'
 import './static/css/input.css'
 
 Vue.config.productionTip = false
 
-Vue.use(iView, {
+Vue.use(ViewUI, {
     transfer: true,
     size: 'large'
 })
